@@ -1,14 +1,16 @@
-# qb-menu
-Menu System for the QBCore Framework
+# OXY3N MENU
+Menu System STANDALONE Inspired in QB-Menu and NH Context Menu
 
 This is a modified version of **[NH Context](https://forum.cfx.re/t/no-longer-supported-standalone-nerohiro-s-context-menu-dynamic-event-firing-menu/2564083)** by **[NeroHiro](https://github.com/nerohiro)**
+
+This is a modified version of **[QB-Menu](https://github.com/qbcore-framework/qb-menu)** by **[qbcore-framework](https://github.com/qbcore-framework)**
 
 --[[
 EXAMPLE MENU
 --]]
 
 ```
-RegisterCommand("qbmenutest", function(source, args, raw)
+RegisterCommand("oxy3ntestmenu", function(source, args, raw)
     openMenu({
         {
             header = "Main Title",
@@ -18,7 +20,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
             header = "Sub Menu Button",
             txt = "This goes to a sub menu",
             params = {
-                event = "qb-menu:client:testMenu2",
+                event = "oxy3n_menu:testMenu2",
                 args = {
                     number = 1,
                 }
@@ -30,7 +32,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
             disabled = true,
             -- hidden = true, -- doesnt create this at all if set to true
             params = {
-                event = "qb-menu:client:testMenu2",
+                event = "oxy3n_menu:testMenu2",
                 args = {
                     number = 1,
                 }
@@ -40,7 +42,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
 end)
 ```
 ```
-RegisterNetEvent('qb-menu:client:testMenu2', function(data)
+RegisterNetEvent('oxy3n_menu:testMenu2', function(data)
     local number = data.number
     openMenu({
         {
@@ -50,7 +52,7 @@ RegisterNetEvent('qb-menu:client:testMenu2', function(data)
             header = "Number: "..number,
             txt = "Other",
             params = {
-                event = "qb-menu:client:testButton",
+                event = "oxy3n_menu:testButton",
                 args = {
                     message = "This was called by clicking this button"
                 }
@@ -60,25 +62,7 @@ RegisterNetEvent('qb-menu:client:testMenu2', function(data)
 end)
 ```
 ```
-RegisterNetEvent('qb-menu:client:testButton', function(data)
-    TriggerEvent('QBCore:Notify', data.message)
+RegisterNetEvent('oxy3n_menu:testButton', function(data)
+    -- NOTIFy System
 end)
 ```
-
-# License
-
-    QBCore Framework
-    Copyright (C) 2021 Joshua Eger
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>

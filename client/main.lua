@@ -1,11 +1,3 @@
-ESX = nil
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(0)
-    end
-end)
-
 local headerShown = false
 local sendData = nil
 local fontAwesome = {"fas", "far", "fab", "fal", "fad", "fa", "fa-solid", "fa-regular", "fa-thin", "fa-light", "fa-duotone"}
